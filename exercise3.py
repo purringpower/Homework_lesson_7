@@ -12,9 +12,12 @@ def manage_the_alarm(username, operation):
             alarm[username].append(new_alarm)
             print(username, "has alarms at:", alarm[username])
         elif operation == 'delete':
-            alarm_to_remove = input('which alarm to remove: ')
-            alarm[username].remove(alarm_to_remove)
-            print(username, "has alarms at:", alarm[username])
+            if len(alarm[username]) == 0:
+                print("There is no alarm to delete")
+            else:
+                alarm_to_remove = input('which alarm to remove: ')
+                alarm[username].remove(alarm_to_remove)
+                print(username, "has alarms at:", alarm[username])
         else:
             print("You need to define: set of delete the alarm")
     else:
